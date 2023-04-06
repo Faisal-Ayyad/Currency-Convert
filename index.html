@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Currency Converter</title>
+    <style>
+      body {
+        background-image: url("Money.png");
+        background-size: cover;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 50px;
+      }
+
+      label {
+        font-size: 24px;
+        font-weight: bold;
+        color: black;
+        margin-bottom: 20px;
+      }
+
+      input,
+      select {
+        font-size: 24px;
+        padding: 10px;
+        border-radius: 5px;
+        border: none;
+        margin-bottom: 20px;
+        text-align: center;
+        color: black;
+        background-color: rgb(93, 134, 81);
+      }
+
+      button {
+        font-size: 24px;
+        padding: 10px;
+        border-radius: 5px;
+        border: none;
+        background-color: rgb(75, 122, 75);
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <label>Enter amount:</label>
+      <input id="amountInput" type="number" placeholder="0.00" />
+      <label>Select currency:</label>
+      <select id="currencySelect">
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+        <option value="GBP">GBP</option>
+        <option value="JPY">JPY</option>
+        <option value="AUD">AUD</option>
+        <option value="CAD">CAD</option>
+        <option value="CHF">CHF</option>
+        <option value="HKD">HKD</option>
+        <option value="INR">INR</option>
+        <option value="KRW">KRW</option>
+        <option value="MXN">MXN</option>
+        <option value="NOK">NOK</option>
+        <option value="NZD">NZD</option>
+        <option value="SEK">SEK</option>
+        <option value="SGD">SGD</option>
+      </select>
+      <button type="button" onclick="convert()">Convert</button>
+      <label>Converted amount:</label>
+      <input id="convertedInput" type="text" disabled />
+    </form>
+
+    <script>
+      function convert() {
+        const amount = document.getElementById("amountInput").value;
+        const currency = document.getElementById("currencySelect").value;
+        const exchangeRates = {
+          USD: 0.8,
+          EUR: 0.67,
+          GBP: 0.58,
+          JPY: 88.54,
+          AUD: 1.06,
+          CAD: 1,
+          CHF: 0.72,
+          HKD: 6.16,
+          INR: 58.45,
+          KRW: 925.92,
+          MXN: 16.00,
+          NOK: 6.72,
+          NZD: 1.15,
+          SEK: 6.64,
+          SGD: 1.09
+        };
+
+        const convertedAmount = amount * exchangeRates[currency];
+
+        document.getElementById("convertedInput").value = convertedAmount.toFixed(2);
+      }
+    </script>
+  </body>
+</html>
