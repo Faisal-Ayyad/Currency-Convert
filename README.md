@@ -1,1 +1,1 @@
-This is a Converter That connects CAD(Canadian) to any other currecny you would like 
+This is a Converter That converts CAD(Canadian) to any other currecny you would like 
